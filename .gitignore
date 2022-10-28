@@ -1,0 +1,16 @@
+# Logs
+yarn-debug.log*
+yarn-error.log*
+
+# Binaries
+node_modules/
+packages/node_modules/
+
+# Builds
+dist/
+**/dist/
+**/public/script.js
+
+.idea/
+workdir/
+.vercel
