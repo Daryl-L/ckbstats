@@ -9,11 +9,12 @@
     "packages/*"
   ],
   "scripts": {
-    "server": "yarn workspace @pocket/server start",
-    "ui": "yarn workspace @pocket/ui start",
-    "lint:ui": "yarn workspace @pocket/ui run lint",
+    "server": "yarn workspace @ckbstats/server start",
+    "agent": "yarn workspace @ckbstats/agent start",
+    "ui": "yarn workspace @ckbstats/ui start",
+    "lint:ui": "yarn workspace @ckbstats/ui run lint",
     "lint:server": "eslint --format=pretty -c .eslintrc.js packages/server/src --ext ts,js",
-    "lint:ui:fix": "yarn workspace @pocket/ui run lint --fix",
+    "lint:ui:fix": "yarn workspace @ckbstats/ui run lint --fix",
     "lint:server:fix": "eslint --format=pretty -c .eslintrc.js packages/server/src --ext ts,js --quiet --fix",
     "lint": "yarn lint:ui && yarn lint:server",
     "lint:fix": "yarn lint:ui:fix && yarn lint:server:fix",
