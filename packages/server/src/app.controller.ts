@@ -31,41 +31,45 @@ export class AppController {
   @Cron(CronExpression.EVERY_SECOND)
   async fetchBlock() {
     if (this.fetchBlockLock++ == 0) {
-      const lastBlockNumber = this.info.lastBlockNumber;
-      const block = lastBlockNumber.eq(0)
-        ? await this.ckbService.bestBlockInfo()
-        : await this.ckbService.getBlockByNumber(
-            lastBlockNumber.add(1).toHexString(),
-          );
-      if (block) {
-        this.info.insertBlock(block);
-      }
+      try {
+        const lastBlockNumber = this.info.lastBlockNumber;
+        const block = lastBlockNumber.eq(0)
+          ? await this.ckbService.bestBlockInfo()
+          : await this.ckbService.getBlockByNumber(
+              lastBlockNumber.add(1).toHexString(),
+            );
+        if (block) {
+          this.info.insertBlock(block);
+        }
+      } catch (e) {}
     }
     this.fetchBlockLock--;
   }
 
   @Cron(CronExpression.EVERY_SECOND)
   async fetchEconomic() {
-    if (this.fetchEconomicLock++ == 0) {
-      let blockNumber = this.info.lastEconomicBlock;
-      if (blockNumber.eq(0)) {
-        const block = await this.ckbService.bestBlockInfo();
-        blockNumber = BI.from(block.header.number).sub(12);
-      } else {
-        blockNumber = blockNumber.add(1);
-      }
-      const block = await this.ckbService.getBlockByNumber(
-        blockNumber.toHexString(),
-      );
-      if (block) {
-        const economic = await this.ckbService.getBlockEconomicState(
-          block.header.hash,
+    try {
+      if (this.fetchEconomicLock++ == 0) {
+        let blockNumber = this.info.lastEconomicBlock;
+        if (blockNumber.eq(0)) {
+          const block = await this.ckbService.bestBlockInfo();
+          blockNumber = BI.from(block.header.number).sub(12);
+        } else {
+          blockNumber = blockNumber.add(1);
+        }
+        const block = await this.ckbService.getBlockByNumber(
+          blockNumber.toHexString(),
         );
-        if (economic) {
-          this.info.updateEconomic(economic, block);
+        if (block) {
+          const economic = await this.ckbService.getBlockEconomicState(
+            block.header.hash,
+          );
+          if (economic) {
+            this.info.updateEconomic(economic, block);
+          }
         }
       }
-    }
+    } catch (e) {}
 
     this.fetchEconomicLock--;
   }
@@ -73,8 +77,10 @@ export class AppController {
   @Cron(CronExpression.EVERY_SECOND)
   async fetchChainInfo() {
     if (this.fetchChainInfoLock++ == 0) {
-      const chainInfo = await this.ckbService.getChainInfo();
-      this.info.updateChainInfo(chainInfo);
+      try {
+        const chainInfo = await this.ckbService.getChainInfo();
+        this.info.updateChainInfo(chainInfo);
+      } catch (e) {}
     }
     this.fetchEpochLock--;
   }
@@ -82,8 +88,10 @@ export class AppController {
   @Cron(CronExpression.EVERY_SECOND)
   async fetchEpoch() {
     if (this.fetchEpochLock++ == 0) {
-      const epoch = await this.ckbService.getCurrentEpoch();
-      this.info.updateEpoch(epoch);
+      try {
+        const epoch = await this.ckbService.getCurrentEpoch();
+        this.info.updateEpoch(epoch);
+      } catch (e) {}
     }
 
     this.fetchEpochLock--;
