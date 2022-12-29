@@ -82,7 +82,7 @@ export class AppController {
         this.info.updateChainInfo(chainInfo);
       } catch (e) {}
     }
-    this.fetchEpochLock--;
+    this.fetchChainInfoLock--;
   }
 
   @Cron(CronExpression.EVERY_SECOND)
