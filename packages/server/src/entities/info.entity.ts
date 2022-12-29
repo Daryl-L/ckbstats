@@ -106,7 +106,7 @@ export class InfoEntity {
       !this._lastChainInfo ||
       BI.from(this._lastChainInfo.epoch)
         .and(0xffffff)
-        .gt(BI.from(chainInfo.epoch).and(0xffffff))
+        .lt(BI.from(chainInfo.epoch).and(0xffffff))
     ) {
       this._lastChainInfo = chainInfo;
       this.updateDifficulty(chainInfo);
