@@ -32,6 +32,16 @@ export class CKBService {
     return await this.rpc.getBlockByNumber(await this.rpc.getTipBlockNumber());
   }
 
+  async latency(): Promise<number> {
+    try {
+      const start = Date.now();
+      await this.rpc.pingPeers();
+      return Date.now() - start;
+    } catch (e) {
+      return 0;
+    }
+  }
+
   async tipBlockNumber(): Promise<string> {
     return await this.rpc.getTipBlockNumber();
   }

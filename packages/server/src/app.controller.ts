@@ -40,6 +40,7 @@ export class AppController {
             );
         if (block) {
           this.info.insertBlock(block);
+          this.info.insertBlockPropagation(await this.ckbService.latency());
         }
       } catch (e) {}
     }

@@ -141,6 +141,13 @@ export class InfoEntity {
     this._lastBlock = block;
   }
 
+  async insertBlockPropagation(time: number): Promise<void> {
+    if (this._info.blockPropagation.length == this.blockCount) {
+      this._info.blockPropagation.shift();
+    }
+    this._info.blockPropagation.push(time);
+  }
+
   private updateBlocks(block: Block) {
     if (this._blocks.length == this.blockCount) {
       this._blocks.shift();
