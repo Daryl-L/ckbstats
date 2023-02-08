@@ -1,6 +1,6 @@
 import { Bar } from 'react-chartjs-2';
 
-const GraphBar = (props: { data: Array<number> }) => {
+const GraphBar = (props: { data: Array<number>; background: { hover: string; normal: string } }) => {
   return (
     <Bar
       options={{
@@ -15,7 +15,8 @@ const GraphBar = (props: { data: Array<number> }) => {
         datasets: [
           {
             data: props.data,
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            backgroundColor: props.background.normal,
+            hoverBackgroundColor: props.background.hover,
           },
         ],
       }}

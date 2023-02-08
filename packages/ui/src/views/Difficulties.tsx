@@ -8,7 +8,10 @@ const Difficulties = (props: { difficulties: number[] }) => {
     <Grid xs={2}>
       <NumberCard style={{ borderLeft: '1px solid rgba(255, 255, 255, 0.2)' }}>
         <NumberCardTitle>difficultis</NumberCardTitle>
-        <GraphBar data={props.difficulties}></GraphBar>
+        <GraphBar
+          background={{ normal: 'rgba(248, 68, 71, 0.4)', hover: 'rgba(248, 68, 71, 0.6)' }}
+          data={props.difficulties}
+        ></GraphBar>
       </NumberCard>
     </Grid>
   );

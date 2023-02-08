@@ -8,7 +8,7 @@ const LastBlock = (props: { blockTime: string }) => {
     <Grid xs={2}>
       <NumberCard>
         <NumberCardTitle>last block</NumberCardTitle>
-        <NumberCardContent>{props.blockTime} s</NumberCardContent>
+        <NumberCardContent style={{ color: '#0FF082' }}>{props.blockTime} s</NumberCardContent>
       </NumberCard>
     </Grid>
   );

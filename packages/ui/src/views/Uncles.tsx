@@ -8,7 +8,7 @@ const Uncles = (props: { uncles: string }) => {
     <Grid xs={2}>
       <NumberCard>
         <NumberCardTitle>uncles</NumberCardTitle>
-        <NumberCardContent>{props.uncles}</NumberCardContent>
+        <NumberCardContent style={{ color: '#EC8349' }}>{props.uncles}</NumberCardContent>
       </NumberCard>
     </Grid>
   );

@@ -8,7 +8,7 @@ const Difficulty = (props: { difficulty: number }) => {
     <Grid xs={2}>
       <NumberCard>
         <NumberCardTitle>avg network hashrate</NumberCardTitle>
-        <NumberCardContent>{props.difficulty} PH</NumberCardContent>
+        <NumberCardContent style={{ color: '#00AEFC' }}>{props.difficulty} PH</NumberCardContent>
       </NumberCard>
     </Grid>
   );

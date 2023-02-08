@@ -8,7 +8,10 @@ const UncleCount = (props: { uncleCount: Array<number> }) => {
     <Grid xs={2}>
       <NumberCard style={{ borderLeft: '1px solid rgba(255, 255, 255, 0.2)' }}>
         <NumberCardTitle>uncle count</NumberCardTitle>
-        <GraphBar data={props.uncleCount}></GraphBar>
+        <GraphBar
+          background={{ normal: 'rgba(0, 174, 252, 0.4)', hover: 'rgba(0, 174, 252, 0.6)' }}
+          data={props.uncleCount}
+        ></GraphBar>
       </NumberCard>
     </Grid>
   );

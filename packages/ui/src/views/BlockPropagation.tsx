@@ -8,7 +8,10 @@ const BlockPropagation = (props: { blockPropagation: number[] }) => {
     <Grid xs={2}>
       <NumberCard style={{ borderLeft: '1px solid rgba(255, 255, 255, 0.2)' }}>
         <NumberCardTitle>block propagation</NumberCardTitle>
-        <GraphBar data={props.blockPropagation}></GraphBar>
+        <GraphBar
+          background={{ normal: 'rgba(248, 68, 71, 0.4)', hover: 'rgba(248, 68, 71, 0.6)' }}
+          data={props.blockPropagation}
+        ></GraphBar>
       </NumberCard>
     </Grid>
   );
