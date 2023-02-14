@@ -1,5 +1,5 @@
-import { BI, Block } from '@ckb-lumos/lumos';
 import { Epoch, BlockEconomicState, ChainInfo } from '@ckb-lumos/base/lib/api';
+import { BI, Block } from '@ckb-lumos/lumos';
 import Info from '@ckbstats/types/src/info';
 import Node from '@ckbstats/types/src/node';
 

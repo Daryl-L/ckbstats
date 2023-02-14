@@ -1,5 +1,5 @@
-import { Block, Indexer, config, RPC, BI } from '@ckb-lumos/lumos';
 import { ChainInfo } from '@ckb-lumos/base/lib/api';
+import { Block, Indexer, config, RPC } from '@ckb-lumos/lumos';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 

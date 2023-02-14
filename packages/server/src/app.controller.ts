@@ -1,11 +1,11 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
-import { AppService } from './app.service';
-import Info from '@ckbstats/types/src/info';
-import { Cron, CronExpression } from '@nestjs/schedule';
 import { BI } from '@ckb-lumos/lumos';
-import { CKBService } from './services/ckb.service';
-import { InfoEntity } from './entities/info.entity';
+import Info from '@ckbstats/types/src/info';
 import Node from '@ckbstats/types/src/node';
+import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Cron, CronExpression } from '@nestjs/schedule';
+import { AppService } from './app.service';
+import { InfoEntity } from './entities/info.entity';
+import { CKBService } from './services/ckb.service';
 
 @Controller()
 export class AppController {

@@ -6,21 +6,22 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import styled from 'styled-components';
-import ComputerIcon from '@mui/icons-material/Computer';
-import DevicesIcon from '@mui/icons-material/Devices';
-import AvTimerIcon from '@mui/icons-material/AvTimer';
-import HandymanIcon from '@mui/icons-material/Handyman';
-import Diversity3Icon from '@mui/icons-material/Diversity3';
-import Storage from '@mui/icons-material/Storage';
-import PausePresentationIcon from '@mui/icons-material/PausePresentation';
-import CalculateIcon from '@mui/icons-material/Calculate';
-import LinkIcon from '@mui/icons-material/Link';
-import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import { styled } from '@mui/material/styles';
 import Node from '@ckbstats/types/src/node';
+import { ReactComponent as NameIcon } from '../icons/name.svg';
+import { ReactComponent as VersionIcon } from '../icons/version.svg';
+import { ReactComponent as NodeLatencyIcon } from '../icons/node-latency.svg';
+import { ReactComponent as PeersIcon } from '../icons/peers.svg';
+import { ReactComponent as BlockNumberIcon } from '../icons/block-number.svg';
+import { ReactComponent as PendingTransactionsIcon } from '../icons/pending-transactions.svg';
+import { ReactComponent as TotalDifficultyIcon } from '../icons/total-difficulty.svg';
+import { ReactComponent as UnclesIcon } from '../icons/uncles.svg';
+import { ReactComponent as LastBlockTimeIcon } from '../icons/last-block-time.svg';
 
-const NodeItem = styled(TableCell)``;
+const NodeItem = styled(TableCell)`
+  font-family: 'Montserrat', sans-serif;
+  color: #00aefc;
+`;
 
 const NodeList = (props: { rows: Node[] }) => {
   return (
@@ -28,49 +29,49 @@ const NodeList = (props: { rows: Node[] }) => {
       <Table sx={{ minWidth: 650, color: 'white', backgroundColor: 'black' }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <NodeItem sx={{ color: '#4dabf5' }}>
+            <NodeItem align="left">
               <Tooltip title="name">
-                <ComputerIcon></ComputerIcon>
+                <NameIcon></NameIcon>
               </Tooltip>
             </NodeItem>
-            <NodeItem sx={{ color: '#4dabf5' }} align="right">
+            <NodeItem align="left">
               <Tooltip title="version">
-                <DevicesIcon></DevicesIcon>
+                <VersionIcon></VersionIcon>
               </Tooltip>
             </NodeItem>
-            <NodeItem sx={{ color: '#4dabf5' }} align="right">
+            <NodeItem align="left">
               <Tooltip title="Node latency">
-                <AvTimerIcon></AvTimerIcon>
+                <NodeLatencyIcon></NodeLatencyIcon>
               </Tooltip>
             </NodeItem>
-            <NodeItem sx={{ color: '#4dabf5' }} align="right">
+            <NodeItem align="left">
               <Tooltip title="peers">
-                <Diversity3Icon></Diversity3Icon>
+                <PeersIcon></PeersIcon>
               </Tooltip>
             </NodeItem>
-            <NodeItem sx={{ color: '#4dabf5' }} align="right">
+            <NodeItem align="left">
               <Tooltip title="block number">
-                <Storage></Storage>
+                <BlockNumberIcon></BlockNumberIcon>
               </Tooltip>
             </NodeItem>
-            <NodeItem sx={{ color: '#4dabf5' }} align="right">
+            <NodeItem align="left">
               <Tooltip title="pending transactions">
-                <PausePresentationIcon></PausePresentationIcon>
+                <PendingTransactionsIcon></PendingTransactionsIcon>
               </Tooltip>
             </NodeItem>
-            <NodeItem sx={{ color: '#4dabf5' }} align="right">
+            <NodeItem align="left">
               <Tooltip title="total difficulty">
-                <CalculateIcon></CalculateIcon>
+                <TotalDifficultyIcon></TotalDifficultyIcon>
               </Tooltip>
             </NodeItem>
-            <NodeItem sx={{ color: '#4dabf5' }} align="right">
+            <NodeItem align="left">
               <Tooltip title="uncles">
-                <LinkIcon></LinkIcon>
+                <UnclesIcon></UnclesIcon>
               </Tooltip>
             </NodeItem>
-            <NodeItem sx={{ color: '#4dabf5' }} align="right">
+            <NodeItem align="left">
               <Tooltip title="last block time">
-                <HourglassEmptyIcon></HourglassEmptyIcon>
+                <LastBlockTimeIcon></LastBlockTimeIcon>
               </Tooltip>
             </NodeItem>
           </TableRow>
@@ -78,33 +79,15 @@ const NodeList = (props: { rows: Node[] }) => {
         <TableBody>
           {props.rows.map((row) => (
             <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-              <NodeItem sx={{ color: '#4dabf5' }} align="right">
-                {row.name}
-              </NodeItem>
-              <NodeItem sx={{ color: '#4dabf5' }} align="right">
-                {row.version}
-              </NodeItem>
-              <NodeItem sx={{ color: '#4dabf5' }} align="right">
-                {row.latency} ms
-              </NodeItem>
-              <NodeItem sx={{ color: '#4dabf5' }} align="right">
-                {row.peers}
-              </NodeItem>
-              <NodeItem sx={{ color: '#4dabf5' }} align="right">
-                {row.blockNumber}
-              </NodeItem>
-              <NodeItem sx={{ color: '#4dabf5' }} align="right">
-                {row.pendingTransactions}
-              </NodeItem>
-              <NodeItem sx={{ color: '#4dabf5' }} align="right">
-                {row.totalDifficulty}
-              </NodeItem>
-              <NodeItem sx={{ color: '#4dabf5' }} align="right">
-                {row.uncles}
-              </NodeItem>
-              <NodeItem sx={{ color: '#4dabf5' }} align="right">
-                {((Date.now() - row.lastBlockTime) / 1000).toFixed(0)} s
-              </NodeItem>
+              <NodeItem align="left">{row.name}</NodeItem>
+              <NodeItem align="left">{row.version}</NodeItem>
+              <NodeItem align="left">{row.latency} ms</NodeItem>
+              <NodeItem align="left">{row.peers}</NodeItem>
+              <NodeItem align="left">{row.blockNumber}</NodeItem>
+              <NodeItem align="left">{row.pendingTransactions}</NodeItem>
+              <NodeItem align="left">{row.totalDifficulty}</NodeItem>
+              <NodeItem align="left">{row.uncles}</NodeItem>
+              <NodeItem align="left">{((Date.now() - row.lastBlockTime) / 1000).toFixed(0)} s</NodeItem>
             </TableRow>
           ))}
         </TableBody>

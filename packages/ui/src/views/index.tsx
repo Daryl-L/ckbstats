@@ -1,5 +1,4 @@
 import { Grid, Box } from '@mui/material';
-import { GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import { useEffect, useState } from 'react';
 import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend } from 'chart.js';
 import Info from '@ckbstats/types/src/info';
@@ -26,6 +25,7 @@ export const View = () => {
   useQuery(
     'info',
     () => {
+      //eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       fetch(process.env.REACT_APP_SERVER_URL!).then((res) => {
         res.json().then((info: Info) => {
           setInfo(info);
