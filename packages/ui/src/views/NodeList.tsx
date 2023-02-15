@@ -21,6 +21,7 @@ import { ReactComponent as LastBlockTimeIcon } from '../icons/last-block-time.sv
 const NodeItem = styled(TableCell)`
   font-family: 'Montserrat', sans-serif;
   color: #00aefc;
+  border-bottom: 1px solid #1c1d23;
 `;
 
 const NodeList = (props: { rows: Node[] }) => {
