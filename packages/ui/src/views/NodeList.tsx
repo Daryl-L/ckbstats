@@ -81,11 +81,23 @@ const NodeList = (props: { rows: Node[] }) => {
             <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
               <NodeItem align="left">{row.name}</NodeItem>
               <NodeItem align="left">{row.version}</NodeItem>
-              <NodeItem align="left">{row.latency} ms</NodeItem>
+              {row.latency === 0 ? (
+                <NodeItem align="left" style={{ color: '#FB9556' }}>
+                  {row.latency} ms
+                </NodeItem>
+              ) : (
+                <NodeItem align="left">{row.latency} ms</NodeItem>
+              )}
               <NodeItem align="left">{row.peers}</NodeItem>
               <NodeItem align="left">{row.blockNumber}</NodeItem>
               <NodeItem align="left">{row.pendingTransactions}</NodeItem>
-              <NodeItem align="left">{row.totalDifficulty}</NodeItem>
+              {Number(row.totalDifficulty) === 0 ? (
+                <NodeItem align="left">{row.totalDifficulty}</NodeItem>
+              ) : (
+                <NodeItem align="left" style={{ color: '#F1403F' }}>
+                  {row.totalDifficulty}
+                </NodeItem>
+              )}
               <NodeItem align="left">{row.uncles}</NodeItem>
               <NodeItem align="left">{((Date.now() - row.lastBlockTime) / 1000).toFixed(0)} s</NodeItem>
             </TableRow>
