@@ -16,6 +16,7 @@ import Transactions from './Transactions';
 import Difficulties from './Difficulties';
 import GasSpending from './GasSpending';
 import NodeList from './NodeList';
+import StyledGrid from '../componoments/StyledGrid';
 
 export const View = () => {
   ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -45,20 +46,26 @@ export const View = () => {
   return (
     <Box sx={{ height: 400, width: '100%' }}>
       <Grid container textAlign="left">
-        <BestBlock blockNumber={info?.bestBlock ?? 0}></BestBlock>
-        <Uncles uncles={info?.uncles ?? '0/0'}></Uncles>
-        <LastBlock blockTime={info ? (now - info.lastBlock).toFixed(0) : '0'}></LastBlock>
-        <AvgBlockTime averageBlockTime={info?.averagBlockTime ?? '0'}></AvgBlockTime>
-        <AvgNetworkHashrate hashrate={info?.averageNetworkHashrate ?? '0'}></AvgNetworkHashrate>
-        <Difficulty difficulty={info?.difficulty ?? 0}></Difficulty>
-        <BlockTime blockTime={info?.blockTime ?? Array<number>(50)}></BlockTime>
-        <UncleCount uncleCount={info?.uncleCount ?? Array<number>(50)}></UncleCount>
-        <BlockPropagation blockPropagation={info?.blockPropagation ?? Array<number>(50)}></BlockPropagation>
-        <Transactions transactions={info?.transactions ?? Array<number>(50)}></Transactions>
-        <GasSpending gasSpending={info?.gasSpending ?? Array<number>(50)}></GasSpending>
-        <Difficulties difficulties={info?.difficulties ?? Array<number>(50)}></Difficulties>
+        <StyledGrid container textAlign="left">
+          <BestBlock blockNumber={info?.bestBlock ?? 0}></BestBlock>
+          <Uncles uncles={info?.uncles ?? '0/0'}></Uncles>
+          <LastBlock blockTime={info ? (now - info.lastBlock).toFixed(0) : '0'}></LastBlock>
+          <AvgBlockTime averageBlockTime={info?.averagBlockTime ?? '0'}></AvgBlockTime>
+          <AvgNetworkHashrate hashrate={info?.averageNetworkHashrate ?? '0'}></AvgNetworkHashrate>
+          <Difficulty difficulty={info?.difficulty ?? 0}></Difficulty>
+        </StyledGrid>
+        <StyledGrid container>
+          <BlockTime blockTime={info?.blockTime ?? Array<number>(50)}></BlockTime>
+          <UncleCount uncleCount={info?.uncleCount ?? Array<number>(50)}></UncleCount>
+          <BlockPropagation blockPropagation={info?.blockPropagation ?? Array<number>(50)}></BlockPropagation>
+          <Transactions transactions={info?.transactions ?? Array<number>(50)}></Transactions>
+          <GasSpending gasSpending={info?.gasSpending ?? Array<number>(50)}></GasSpending>
+          <Difficulties difficulties={info?.difficulties ?? Array<number>(50)}></Difficulties>
+        </StyledGrid>
       </Grid>
-      <NodeList rows={info?.nodeList ?? []}></NodeList>
+      <StyledGrid style={{ paddingTop: '0' }}>
+        <NodeList rows={info?.nodeList ?? []}></NodeList>
+      </StyledGrid>
     </Box>
   );
 };

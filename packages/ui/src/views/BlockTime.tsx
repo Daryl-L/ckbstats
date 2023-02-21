@@ -1,13 +1,13 @@
 import { Grid } from '@mui/material';
 import NumberCardTitle from '../componoments/NumberCardTitle';
-import NumberCard from '../componoments/NumberCard';
+import GraphCard from '../componoments/GraphCard';
 import GraphBar from '../componoments/BarGraph';
 import { ReactComponent as BlockTimeIcon } from '../icons/block-time.svg';
 
 const BlockTime = (props: { blockTime: Array<number> }) => {
   return (
     <Grid xs={2}>
-      <NumberCard style={{ borderLeft: '1px solid rgba(255, 255, 255, 0.2)' }}>
+      <GraphCard>
         <NumberCardTitle>
           <BlockTimeIcon style={{ verticalAlign: 'middle' }}></BlockTimeIcon> block time
         </NumberCardTitle>
@@ -15,7 +15,7 @@ const BlockTime = (props: { blockTime: Array<number> }) => {
           data={props?.blockTime}
           background={{ hover: 'rgba(15, 240, 130, 0.6)', normal: 'rgba(15, 240, 130, 0.4)' }}
         ></GraphBar>
-      </NumberCard>
+      </GraphCard>
     </Grid>
   );
 };

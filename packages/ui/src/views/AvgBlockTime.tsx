@@ -7,8 +7,8 @@ const AvgBlockTime = (props: { averageBlockTime: string }) => {
   return (
     <Grid xs={2}>
       <NumberCard>
-        <NumberCardTitle>avg block time</NumberCardTitle>
         <NumberCardContent style={{ color: '#00AEFC' }}>{props.averageBlockTime} s</NumberCardContent>
+        <NumberCardTitle>avg block time</NumberCardTitle>
       </NumberCard>
     </Grid>
   );

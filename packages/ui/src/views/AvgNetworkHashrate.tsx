@@ -7,8 +7,8 @@ const AvgNetworkHashrate = (props: { hashrate: string }) => {
   return (
     <Grid xs={2}>
       <NumberCard>
-        <NumberCardTitle>avg network hashrate</NumberCardTitle>
         <NumberCardContent style={{ color: '#868AFF' }}>{props.hashrate} PH/s</NumberCardContent>
+        <NumberCardTitle>avg network hashrate</NumberCardTitle>
       </NumberCard>
     </Grid>
   );

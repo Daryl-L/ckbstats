@@ -7,8 +7,8 @@ const Uncles = (props: { uncles: string }) => {
   return (
     <Grid xs={2}>
       <NumberCard>
-        <NumberCardTitle>uncles</NumberCardTitle>
         <NumberCardContent style={{ color: '#EC8349' }}>{props.uncles}</NumberCardContent>
+        <NumberCardTitle>uncles</NumberCardTitle>
       </NumberCard>
     </Grid>
   );

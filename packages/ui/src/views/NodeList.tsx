@@ -27,8 +27,8 @@ const NodeItem = styled(TableCell)`
 const NodeList = (props: { rows: Node[] }) => {
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650, color: 'white', backgroundColor: 'black' }} size="small" aria-label="a dense table">
-        <TableHead>
+      <Table sx={{ minWidth: 650, color: 'white', backgroundColor: '#0C111D' }} size="small" aria-label="a dense table">
+        <TableHead sx={{ backgroundColor: '#101521' }}>
           <TableRow>
             <NodeItem align="left">
               <Tooltip title="name">

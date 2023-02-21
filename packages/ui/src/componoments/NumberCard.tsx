@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 const NumberCard = styled.div`
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-left: 1px;
+  border-left: 1px solid #192132;
   color: white;
   padding: 10px;
 `;

@@ -1,13 +1,13 @@
 import { Grid } from '@mui/material';
 import NumberCardTitle from '../componoments/NumberCardTitle';
-import NumberCard from '../componoments/NumberCard';
+import GraphCard from '../componoments/GraphCard';
 import GraphBar from '../componoments/BarGraph';
 import { ReactComponent as UncleCountIcon } from '../icons/uncle-count.svg';
 
 const UncleCount = (props: { uncleCount: Array<number> }) => {
   return (
     <Grid xs={2}>
-      <NumberCard style={{ borderLeft: '1px solid rgba(255, 255, 255, 0.2)' }}>
+      <GraphCard>
         <NumberCardTitle>
           <UncleCountIcon style={{ verticalAlign: 'middle' }}></UncleCountIcon> uncle count
         </NumberCardTitle>
@@ -15,7 +15,7 @@ const UncleCount = (props: { uncleCount: Array<number> }) => {
           background={{ normal: 'rgba(0, 174, 252, 0.4)', hover: 'rgba(0, 174, 252, 0.6)' }}
           data={props.uncleCount}
         ></GraphBar>
-      </NumberCard>
+      </GraphCard>
     </Grid>
   );
 };
