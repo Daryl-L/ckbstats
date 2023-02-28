@@ -6,7 +6,7 @@ import { ReactComponent as UncleCountIcon } from '../icons/uncle-count.svg';
 
 const UncleCount = (props: { uncleCount: Array<number> }) => {
   return (
-    <Grid xs={2}>
+    <Grid sm={2}>
       <GraphCard>
         <GraphCardTitle>
           <UncleCountIcon style={{ verticalAlign: 'middle' }}></UncleCountIcon> uncle count

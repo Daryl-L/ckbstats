@@ -6,7 +6,7 @@ import { ReactComponent as BlockTimeIcon } from '../icons/block-time.svg';
 
 const BlockTime = (props: { blockTime: Array<number> }) => {
   return (
-    <Grid xs={2}>
+    <Grid sm={2}>
       <GraphCard>
         <GraphCardTitle>
           <BlockTimeIcon style={{ verticalAlign: 'middle' }}></BlockTimeIcon> block time

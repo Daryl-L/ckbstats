@@ -5,7 +5,7 @@ import NumberCard from '../componoments/NumberCard';
 
 const AvgBlockTime = (props: { averageBlockTime: string }) => {
   return (
-    <Grid xs={2}>
+    <Grid sm={2}>
       <NumberCard>
         <NumberCardContent style={{ color: '#00AEFC' }}>{props.averageBlockTime} s</NumberCardContent>
         <NumberCardTitle>avg block time</NumberCardTitle>

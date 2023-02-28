@@ -5,7 +5,7 @@ import NumberCard from '../componoments/NumberCard';
 
 const AvgNetworkHashrate = (props: { hashrate: string }) => {
   return (
-    <Grid xs={2}>
+    <Grid sm={2}>
       <NumberCard>
         <NumberCardContent style={{ color: '#868AFF' }}>{props.hashrate} PH/s</NumberCardContent>
         <NumberCardTitle>avg network hashrate</NumberCardTitle>

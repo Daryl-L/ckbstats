@@ -6,7 +6,7 @@ import { ReactComponent as BlockPropagationIcon } from '../icons/block-propagati
 
 const BlockPropagation = (props: { blockPropagation: number[] }) => {
   return (
-    <Grid xs={2}>
+    <Grid sm={2}>
       <GraphCard>
         <GraphCardTitle>
           <BlockPropagationIcon style={{ verticalAlign: 'middle' }}></BlockPropagationIcon> block propagation

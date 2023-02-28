@@ -6,7 +6,7 @@ import { ReactComponent as GasSpendingIcon } from '../icons/gas-spending.svg';
 
 const GasSpending = (props: { gasSpending: number[] }) => {
   return (
-    <Grid xs={2}>
+    <Grid sm={2}>
       <GraphCard>
         <GraphCardTitle>
           <GasSpendingIcon style={{ verticalAlign: 'middle' }}></GasSpendingIcon> gas spending

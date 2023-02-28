@@ -5,7 +5,7 @@ import NumberCard from '../componoments/NumberCard';
 
 const Uncles = (props: { uncles: string }) => {
   return (
-    <Grid xs={2}>
+    <Grid sm={2}>
       <NumberCard>
         <NumberCardContent style={{ color: '#EC8349' }}>{props.uncles}</NumberCardContent>
         <NumberCardTitle>uncles</NumberCardTitle>

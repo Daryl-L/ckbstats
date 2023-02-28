@@ -6,7 +6,7 @@ import { ReactComponent as TransactionsIcon } from '../icons/transactions.svg';
 
 const Transactions = (props: { transactions: number[] }) => {
   return (
-    <Grid xs={2}>
+    <Grid sm={2}>
       <GraphCard>
         <GraphCardTitle>
           <TransactionsIcon style={{ verticalAlign: 'middle' }}></TransactionsIcon> transactions

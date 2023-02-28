@@ -5,10 +5,10 @@ import NumberCard from '../componoments/NumberCard';
 
 const Difficulty = (props: { difficulty: number }) => {
   return (
-    <Grid xs={2}>
+    <Grid sm={2}>
       <NumberCard>
         <NumberCardContent style={{ color: '#00AEFC' }}>{props.difficulty} PH</NumberCardContent>
-        <NumberCardTitle>avg network hashrate</NumberCardTitle>
+        <NumberCardTitle>difficulty</NumberCardTitle>
       </NumberCard>
     </Grid>
   );

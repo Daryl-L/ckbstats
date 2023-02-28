@@ -6,7 +6,7 @@ import { ReactComponent as DifficultiesIcon } from '../icons/difficulties.svg';
 
 const Difficulties = (props: { difficulties: number[] }) => {
   return (
-    <Grid xs={2}>
+    <Grid sm={2}>
       <GraphCard>
         <GraphCardTitle>
           <DifficultiesIcon style={{ verticalAlign: 'middle', color: 'red' }}></DifficultiesIcon> difficultis

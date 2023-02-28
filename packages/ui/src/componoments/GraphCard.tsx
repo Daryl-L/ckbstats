@@ -5,7 +5,7 @@ const GraphCard = styled.div`
   color: white;
   padding: 10px 0 10px 0;
   border-radius: 8px;
-  margin: 0 5px 0 5px;
+  margin: 5px 5px 5px 5px;
 `;
 
 export default GraphCard;
