@@ -46,9 +46,9 @@ export const View = () => {
   return (
     <Box sx={{ height: 400, width: '100%' }}>
       <Grid container textAlign="left">
-        <StyledGrid container textAlign="left" height={66}>
+        <Grid container textAlign="left" height={66}>
           <Box component="img" src="./logo.png" height={33} position="absolute" left={29} top={25}></Box>
-        </StyledGrid>
+        </Grid>
         <StyledGrid container textAlign="left">
           <BestBlock blockNumber={info?.bestBlock ?? 0}></BestBlock>
           <Uncles uncles={info?.uncles ?? '0/0'}></Uncles>
