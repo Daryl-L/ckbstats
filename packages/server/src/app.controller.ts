@@ -1,7 +1,7 @@
 import { BI } from '@ckb-lumos/lumos';
 import Info from '@ckbstats/types/src/info';
 import Node from '@ckbstats/types/src/node';
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Logger, Post } from '@nestjs/common';
 import { Cron, CronExpression } from '@nestjs/schedule';
 import { AppService } from './app.service';
 import { InfoEntity } from './entities/info.entity';
@@ -39,10 +39,20 @@ export class AppController {
               lastBlockNumber.add(1).toHexString(),
             );
         if (block) {
+          Logger.log(
+            `Start syncing block ${block.header.number}`,
+            'fetchBlock',
+          );
           this.info.insertBlock(block);
           this.info.insertBlockPropagation(await this.ckbService.latency());
+          Logger.log(
+            `Finish syncing block ${block.header.number}`,
+            'fetchBlock',
+          );
         }
-      } catch (e) {}
+      } catch (e) {
+        Logger.error(e, 'fetchBlock');
+      }
     }
     this.fetchBlockLock--;
   }
@@ -62,15 +72,25 @@ export class AppController {
           blockNumber.toHexString(),
         );
         if (block) {
+          Logger.log(
+            `Start syncing block ${block.header.number}`,
+            'fetchEconomic',
+          );
           const economic = await this.ckbService.getBlockEconomicState(
             block.header.hash,
           );
           if (economic) {
             this.info.updateEconomic(economic, block);
           }
+          Logger.log(
+            `Finish syncing block ${block.header.number}`,
+            'fetchEconomic',
+          );
         }
       }
-    } catch (e) {}
+    } catch (e) {
+      Logger.error(e, 'fetchEconomic');
+    }
 
     this.fetchEconomicLock--;
   }
