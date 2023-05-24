@@ -90,7 +90,7 @@ const NodeList = (props: { rows: Node[] }) => {
                 <NodeItem align="left">{row.latency} ms</NodeItem>
               )}
               <NodeItem align="left">{row.peers}</NodeItem>
-              <NodeItem align="left">{row.blockNumber}</NodeItem>
+              <NodeItem align="left">{row.blockNumber ? row.blockNumber.toLocaleString() : '0'}</NodeItem>
               <NodeItem align="left">{row.pendingTransactions}</NodeItem>
               {Number(row.totalDifficulty) === 0 ? (
                 <NodeItem align="left">{row.totalDifficulty}</NodeItem>

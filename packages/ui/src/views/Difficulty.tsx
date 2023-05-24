@@ -7,7 +7,9 @@ const Difficulty = (props: { difficulty: number }) => {
   return (
     <Grid sm={2}>
       <NumberCard>
-        <NumberCardContent style={{ color: '#00AEFC' }}>{props.difficulty} PH</NumberCardContent>
+        <NumberCardContent style={{ color: '#00AEFC' }}>
+          {props.difficulty ? props.difficulty.toLocaleString() : '0'} PH
+        </NumberCardContent>
         <NumberCardTitle>difficulty</NumberCardTitle>
       </NumberCard>
     </Grid>
